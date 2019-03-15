@@ -1,3 +1,34 @@
+# Heureka Fork README
+
+To add this repository to your helm installation type:
+
+```
+helm repo add heureka https://kubernetes.gpages.heu.cz/helm-charts-fork/
+```
+
+The default repository branch is `all-patches`. When pulling new upstream and/or adding new patches, you MUST re-create the whole branch:
+
+```
+git branch -D all-patches
+git pull upstream master
+git checkout -b all-patches
+```
+
+Then merge all patch branches, which are already present in the repository. Their name SHOULD be prefixed by `patch/` so they are easy to find and ordered by patch number.
+
+```
+git merge patch/000-heureka-base
+git merge patch/001-some-patch
+git merge patch/002-some-patch
+...
+git push --all -f origin
+```
+
+(adding blank spaces below to avoid potential patch conflicts)
+
+
+
+
 # Helm Charts
 
 Use this repository to submit official Charts for Helm. Charts are curated application definitions for Helm. For more information about installing and using Helm, see its
